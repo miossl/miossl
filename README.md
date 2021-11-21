@@ -1,6 +1,5 @@
 This is a code repository for the paper titled "**MIO : Mutual Information Optimization using Self-Supervised Binary Contrastive Learning**"
 
-
 Steps to run the code:
 
 - Clone this repository
@@ -17,3 +16,5 @@ To run the code using a file, follow the steps below:
 - Clone this repository
 - Open Terminal in the master folder '**miossl**'
 - Run 'python3 training_and_evaluation_mio.py'
+
+Google Colab Link : https://colab.research.google.com/drive/1--AIEcFFGkU5UoBMeTyufdeDnqvGTSp6?usp=sharing
