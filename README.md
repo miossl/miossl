@@ -12,3 +12,8 @@ Steps to run the code:
 If running the codes on Google Colab:
 - Download and Upload the notebook 'Training and Evaluation Notebook - MIO.ipynb' to Google Colab
 - Run the cells as per instructions given.
+
+To run the code using a file, follow the steps below:
+- Clone this repository
+- Open Terminal in the master folder '**miossl**'
+- Run 'python3 training_and_evaluation_mio.py'
