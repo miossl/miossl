@@ -4,11 +4,11 @@ import torch
 import torch.nn as nn
 from torch.utils.tensorboard import SummaryWriter
 from tqdm import tqdm
-from model_utils import ClassificationModel
 from typing import Type, Any
 from datetime import datetime
-from utils import save_model, plot_features
-from perf_metrics import get_performance_metrics
+from .model_utils import ClassificationModel
+from .utils import save_model, plot_features
+from .perf_metrics import get_performance_metrics
 
 class Trainer(nn.Module):
     def __init__(self,
