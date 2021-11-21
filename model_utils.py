@@ -85,12 +85,6 @@ class ClassificationModel(nn.Module):
         self.num_classes = num_classes
         self.data_dims = data_dims
         self.classification_type = classification_type
-        # if self.num_classes == 2 and self.classification_type == 'binary':
-        #     num_classes = 1
-        # elif self.num_classes == 2 and self.classification_type == 'multi-label':
-        #     num_classes = 2
-        # else:
-        #     num_classes = self.model.num_classes
 
         self.base_encoder = models.resnet50(num_classes = self.num_classes)
         if self.data_dims.split('x')[0] == '32':
@@ -102,9 +96,6 @@ class ClassificationModel(nn.Module):
             self.criterion = nn.CrossEntropyLoss()
         elif self.classification_type in ['binary','multi-label']:
             self.criterion = nn.BCEWithLogitsLoss(pos_weight = self.bin_pos_wts)
-
-        #if stage == 'lineval':
-        #    for p in self.base_encoder
 
     def forward(self, x:Tensor) -> Tensor:
         return self.base_encoder(x)
