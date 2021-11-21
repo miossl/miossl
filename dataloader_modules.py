@@ -11,9 +11,9 @@ import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 from torchvision import transforms
 
-from model_transforms import *
-from extraction import extract_archive
-from utils import unpickle
+#from .model_transforms import MIOTransform
+from .extraction import extract_archive
+from .utils import unpickle
 
 class SSLArrayDataset(Dataset):
     def __init__(self, phase, array, labels, mean, std, transformations = None):
