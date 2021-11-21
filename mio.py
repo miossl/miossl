@@ -9,14 +9,14 @@ from torchvision import models
 from model_utils import Identity, ProjectionHead
 from lars import LARS
 from schedulers import LinearWarmupCosineAnnealingLR
-from losses import CUMILoss
+from losses import MIOLoss
 from utils import seed_everything
 
 seed_everything(16)
 
 # MODEL
 
-class CUMINet(nn.Module):
+class MIONet(nn.Module):
     def __init__(self,
                  base_encoder_name: str = 'resnet50',
                  projector_type: str = 'nonlinear',
@@ -59,7 +59,7 @@ class CUMINet(nn.Module):
         x = self.projector(x)
         return x
 
-class CUMIModel(nn.Module):
+class MIOModel(nn.Module):
 
     def __init__(self,
                  base_encoder_name: str = 'resnet50',
@@ -114,7 +114,7 @@ class CUMIModel(nn.Module):
         self.proj_use_bn = proj_use_bn
         self.proj_last_bn = proj_last_bn
 
-        self.net = CUMINet(self.base_encoder_name,
+        self.net = MIONet(self.base_encoder_name,
                              self.projector_type,
                              self.proj_num_layers,
                              self.projector_hid_dim,
@@ -123,7 +123,7 @@ class CUMIModel(nn.Module):
                              self.proj_last_bn,
                              self.data_dims).to('cuda:0')
 
-        self.criterion = CUMILoss(batch_size = self.pretrain_batch_size,
+        self.criterion = MIOLoss(batch_size = self.pretrain_batch_size,
                                   p_temperature = self.p_temperature,
                                   n_temperature = self.n_temperature,
                                   lambda_loss = self.lambda_loss)
@@ -132,7 +132,7 @@ class CUMIModel(nn.Module):
 
     @property
     def model_name(self) -> str:
-        return 'cumi'
+        return 'mio'
 
     def forward(self, x: Tensor) -> Tensor:
         return self.net(x)
