@@ -4,7 +4,7 @@ This is a code repository for the paper titled "**MIO : Mutual Information Optim
 Steps to run the code:
 
 - Clone this repository
-- Open Terminal in the folder '**miossl**'
+- Open Terminal in the master folder '**miossl**'
 - Open Jupyter Notebook
 - Open 'Training and Evaluation Notebook - MIO.ipynb'
 - Run the cells as per the instructions given.
