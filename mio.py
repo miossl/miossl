@@ -6,11 +6,11 @@ import torch.nn as nn
 from torch import Tensor
 from torchvision import models
 
-from model_utils import Identity, ProjectionHead
-from lars import LARS
-from schedulers import LinearWarmupCosineAnnealingLR
-from losses import MIOLoss
-from utils import seed_everything
+from .model_utils import Identity, ProjectionHead
+from .lars import LARS
+from .schedulers import LinearWarmupCosineAnnealingLR
+from .losses import MIOLoss
+from .utils import seed_everything
 
 seed_everything(16)
 
